@@ -5,3 +5,102 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+
+######### Pacientes
+# t.string "RUT", null: false
+# t.string "names"
+# t.string "surnames"
+# t.string "email"
+# t.string "address"
+
+
+# 10.times do
+#     rut = Faker::ChileRut.full_rut
+#     nombre = Faker::Name.first_name
+#     apellido = Faker::Name.last_name
+#     mail = Faker::Internet.email(name: "#{nombre}+.+#{apellido}")
+#     direccion = Faker::Address.street_address
+#     duplicate = Patient.find_by(RUT: rut) || Patient.find_by(email: mail)
+#     if !duplicate
+#             Patient.create(
+#                 [
+#                     {
+#                         RUT: rut,
+#                         names: nombre,
+#                         surnames: apellido,
+#                         email: mail,
+#                         address: direccion
+#                     }
+#                 ]
+#             )
+#     end
+# end
+
+
+############## Doctores
+# t.string "RUT", null: false
+# t.string "names"
+# t.string "surnames"
+# t.string "specialty"
+# t.string "email"
+
+# 10.times do
+#     rut = Faker::ChileRut.full_rut
+#     nombre = Faker::Name.first_name
+#     apellido = Faker::Name.last_name
+#     mail = Faker::Internet.email(name: "#{nombre}+.+#{apellido}")
+#     especialidad = "Dentist"
+#     duplicate = Doctor.find_by(RUT: rut) || Patient.find_by(email: mail)
+#     if !duplicate
+#             Doctor.create(
+#                 [
+#                     {
+#                         RUT: rut,
+#                         names: nombre,
+#                         surnames: apellido,
+#                         email: mail,
+#                         specialty: especialidad
+#                     }
+#                 ]
+#             )
+#     end
+# end
+##################
+
+########### appointments
+# t.datetime "date_time", null: false
+# t.integer "cost"
+# t.bigint "patient_id"
+# t.bigint "doctor_id"
+# t.bigint "invoice_id"
+# t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+# t.index ["invoice_id"], name: "index_appointments_on_invoice_id"
+# t.index ["patient_id"], name: "index_appointments_on_patient_id"
+
+2.times do
+    #hora_fecha = Faker::Date.in_date_period(year: 2021)
+    hora_fecha = Faker::Time.between_dates(from: Date.today - 60, to: Date.today +  30, period: :day)
+    monto = rand(9990..99990)
+    paciente = rand(Patient.minimum(:id)..Patient.maximum(:id))
+    doctor = rand(Doctor.minimum(:id)..Doctor.maximum(:id))
+#    duplicate = Doctor.find_by(RUT: rut) || Patient.find_by(email: mail)
+#    if !duplicate
+            Appointment.create(
+                [
+                    {
+                        date_time: hora_fecha,
+                        cost: monto,
+                        patient_id: paciente,
+                        doctor_id: doctor,
+                        invoice_id: nil
+                    }
+                ]
+            )
+#    end
+end
+#####################
+
+############## Boletas
