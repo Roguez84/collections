@@ -38,7 +38,7 @@
 
 ####  Paciente registrado - Boletas
 - Paciente ve dashboard de boletas
-- Al lado de cada boleta hay un boton que redirige a pagar la boletas por paypal
+- Al lado de cada boleta hay un boton que redirige a pagar la boletas por pay
 
 
 
@@ -87,8 +87,7 @@ Doctores: (has_many :atenciones)
 - Apellidos:string
 - Email:email
 - Especialidad:string
-- Nombre Prestacion
-- $ Prestacion
+
 
 Atenciones: (Belongs_to :Doctor, Belongs_to :Pacientes, Belongs_to :Boletas)
 - ID: primary_key
@@ -97,12 +96,12 @@ Atenciones: (Belongs_to :Doctor, Belongs_to :Pacientes, Belongs_to :Boletas)
 - ID_pacientes: Foreign Key
 - ID_doctores: Foreign Key
 - ID_boletas: Foreign Key
+- $ Prestacion
 
 Boletas: (has_many :atenciones)
 - ID: primary_key
 - #Boleta:integer
 - Status: Boolean
-- ID_atenciones: Foreign KEY
 
 
 
