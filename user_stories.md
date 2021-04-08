@@ -1,7 +1,7 @@
 ## Cualquier persona
 - DUS000 Cualquier persona puede entrar a pagina root y le aparecen 2 botones: "Soy Paciente" o "Soy Doctor" (pagina ...com/)
 - UUS000 Boton "soy doctor" redirige a (pagina ...com/Doctores/) formulario para crear cuenta o hacer log in
-- UUS001 Boton "Soy paciente" redirige a (pagina ...com/Pacientes/)
+- UUS001 Boton "Soy paciente" redirige a pagina para hacer busqueda (pagina ...com/Pacientes/)
 
 ## Doctor
 ### Manejo de Horas existentes
@@ -13,10 +13,10 @@
 - DUS012 Doctor puede editar una hora existente (pagina ...com/Doctores/Nombre)
 - DUS013 Doctor puede borrar una hora existente (pagina ...com/Doctores/Nombre)
 - DUS030 Doctor puede pinchar un link para ser dirigido a una vista con dashboard por boleta DASHBOARD 2 (redirige a ...com/Doctores/boletas)
+- DUS020 Doctor puede pinchar un link para ser dirigido a una vista igual a DASHBOARD 1 pero con posibilidad de agrupar (redirige a ...com/Doctores/Nueva_boleta)
 
 
 ### Crear Boleta
-- DUS020 Doctor puede pinchar un link para ser dirigido a una vista igual a DASHBOARD 1 pero con posibilidad de agrupar (redirige a ...com/Doctores/Nueva_boleta)
 - DUS020 Doctor puede pinchar un boton para crear nueva boleta en base a agrupacion anteriod y es redirigido a DASHBOARD 2 (redirige a ...com/Doctores/boletas)
 
 ### Manejo de Boletas
@@ -30,20 +30,36 @@
 ## Pacientes
 ### Paciente no registrado
 - DUS110 Paciente accede a una pagina con un buscador por nombre y/o especialidad de doctor (pagina ...com//)
-- Al realizarse y seleccionar un doctor, el paciente puede llenar un formulario y enviarle un mensaje predeterminado consultando por disponibilidad
+- DUS120Al realizarse y seleccionar un doctor, el paciente puede llenar un formulario y enviarle un mensaje predeterminado consultando por disponibilidad
 
 ### Paciente registrado vista de horas existentes
-- Ve el mismo buscador que el paciente no registrado, pero ademas ve un Dashboard Con informacion sore sus horas pasadas futuras
-- Paciente puede acceder a pagina con todas sus Boletas
+- DUS130 Ve el mismo buscador que el paciente no registrado, pero ademas ve un Dashboard Con informacion sore sus horas pasadas y futuras
+- DUS140 Paciente puede acceder (mediante a un link) a pagina con todas sus Boletas pagadas y pendientes
 
 ####  Paciente registrado - Boletas
-- Paciente ve dashboard de boletas
-- Al lado de cada boleta hay un boton que redirige a pagar la boletas por pay
+- DUS140 Paciente ve dashboard de boletas
+- Al lado de cada boleta hay un boton que redirige a pagar la boletas por paypal
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+## NO LEER DE AQUI PARA ABAJO
+#############################################################
+#############################################################
+## NO LEER DE AQUI PARA ABAJO
 Vista por fecha:
 - Fecha
 - Hora
