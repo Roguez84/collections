@@ -80,27 +80,41 @@
 # t.index ["invoice_id"], name: "index_appointments_on_invoice_id"
 # t.index ["patient_id"], name: "index_appointments_on_patient_id"
 
-2.times do
-    #hora_fecha = Faker::Date.in_date_period(year: 2021)
-    hora_fecha = Faker::Time.between_dates(from: Date.today - 60, to: Date.today +  30, period: :day)
-    monto = rand(9990..99990)
-    paciente = rand(Patient.minimum(:id)..Patient.maximum(:id))
-    doctor = rand(Doctor.minimum(:id)..Doctor.maximum(:id))
-#    duplicate = Doctor.find_by(RUT: rut) || Patient.find_by(email: mail)
-#    if !duplicate
-            Appointment.create(
-                [
-                    {
-                        date_time: hora_fecha,
-                        cost: monto,
-                        patient_id: paciente,
-                        doctor_id: doctor,
-                        invoice_id: nil
-                    }
-                ]
-            )
-#    end
-end
+# 8.times do
+#     hora_fecha = Faker::Time.between_dates(from: Date.today - 60, to: Date.today +  30, period: :day)
+#     monto = rand(9990..99990)
+#     paciente = rand(Patient.minimum(:id)..Patient.maximum(:id))
+#     doctor = rand(Doctor.minimum(:id)..Doctor.maximum(:id))
+#     boleta = rand(Invoice.minimum(:id)..Invoice.maximum(:id))
+#             Appointment.create(
+#                 [
+#                     {
+#                         date_time: hora_fecha,
+#                         cost: monto,
+#                         patient_id: paciente,
+#                         doctor_id: doctor,
+#                     }
+#                 ]
+#             )
+# end
 #####################
 
 ############## Boletas
+# t.integer "invoice_num"
+# t.integer "invoice_amt"
+# t.boolean "paid_status", default: false
+# t.datetime "invoice_date"
+
+10.times do
+    numero = rand(111111..999999)
+    duplicate = Invoice.find_by(invoice_num: numero)
+    if !duplicate
+            Invoice.create(
+                [
+                    {
+                        invoice_num: numero
+                    }
+                ]
+            )
+    end
+end

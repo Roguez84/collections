@@ -1,0 +1,96 @@
+<h1>Appointments#index</h1>
+<p>Find me in app/views/appointments/index.html.erb</p>
+
+<!--  Patients-->
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Direccion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.names %></td>
+        <td><%= patient.surnames %></td>
+        <td><%= patient.address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<!--  Doctors-->
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Especialidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%= doctor.names %></td>
+        <td><%= doctor.surnames %></td>
+        <td><%= doctor.specialty %></td>
+        <td><%= doctor %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Doctor</th>
+      <th>Pacient</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appt| %>
+      <tr>
+        <td><%= appt.date_time %></td>
+        <td><%=  appt.doctor_id%></td>
+        <td><%=    %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Numero Boleta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.invoice_num %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
