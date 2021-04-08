@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+Appointment.destroy_all
+Doctor.destroy_all
+
 
 
 ######### Pacientes
@@ -73,7 +76,7 @@
 
 
 ########### appointments
-Appointment.destroy_all
+#Appointment.destroy_all
 
 # t.datetime "date_time", null: false
 # t.integer "cost"
@@ -84,26 +87,7 @@ Appointment.destroy_all
 # t.index ["invoice_id"], name: "index_appointments_on_invoice_id"
 # t.index ["patient_id"], name: "index_appointments_on_patient_id"
 
-50.times do
-    hora_fecha = Faker::Time.between_dates(from: Date.today - 60, to: Date.today +  30, period: :day)
-    monto = rand(9990..99990)
-    paciente = rand(Patient.minimum(:id)..Patient.maximum(:id))
-    doctor = rand(Doctor.minimum(:id)..Doctor.maximum(:id))
-    boleta = rand(Invoice.minimum(:id)..Invoice.maximum(:id))
-
-
-            Appointment.create(
-                [
-                    {
-                        date_time: hora_fecha,
-                        cost: monto,
-                        patient_id: paciente,
-                        doctor_id: doctor,
-                    }
-                ]
-            )
-end
-#####################
+######################
 
 ############## Boletas
 # t.integer "invoice_num"
