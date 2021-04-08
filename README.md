@@ -23,4 +23,4 @@ Initialized project with postgresql
 
 * Deployment instructions
 
-* ...
+* Follow work progress in https://trello.com/b/mdFW7WbV/proyecto-bootcamp
