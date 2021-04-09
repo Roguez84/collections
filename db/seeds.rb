@@ -96,23 +96,23 @@
 # t.index ["patient_id"], name: "index_appointments_on_patient_id"
 
 
-100.times do
-    hora_fecha = Faker::Time.between_dates(from: Date.today - 60, to: Date.today +  30, period: :day)
-    monto = rand(9990..99990)
-    paciente = rand(Patient.minimum(:id)..Patient.maximum(:id))
-    doctor = rand(Doctor.minimum(:id)..Doctor.maximum(:id))
-    boleta = rand(Invoice.minimum(:id)..Invoice.maximum(:id))
-            Appointment.create(
-                [
-                    {
-                        date_time: hora_fecha,
-                        cost: monto,
-                        patient_id: paciente,
-                        doctor_id: doctor,
-                    }
-                ]
-            )
-end
+# 100.times do
+#     hora_fecha = Faker::Time.between_dates(from: Date.today - 60, to: Date.today +  30, period: :day)
+#     monto = rand(9990..99990)
+#     paciente = rand(Patient.minimum(:id)..Patient.maximum(:id))
+#     doctor = rand(Doctor.minimum(:id)..Doctor.maximum(:id))
+#     boleta = rand(Invoice.minimum(:id)..Invoice.maximum(:id))
+#             Appointment.create(
+#                 [
+#                     {
+#                         date_time: hora_fecha,
+#                         cost: monto,
+#                         patient_id: paciente,
+#                         doctor_id: doctor,
+#                     }
+#                 ]
+#             )
+# end
 
 
 ######################
@@ -136,3 +136,4 @@ end
 #             )
 #     end
 # end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
