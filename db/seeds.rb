@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Appointment.destroy_all
-Doctor.destroy_all
+#Appointment.destroy_all
+#Doctor.destroy_all
 
 
 
@@ -48,7 +48,14 @@ Doctor.destroy_all
 # t.string "names"
 # t.string "surnames"
 # t.string "specialty"
-# t.string "email"
+# t.datetime "created_at", null: false
+# t.datetime "updated_at", null: false
+# t.string "email", default: "", null: false
+# t.string "encrypted_password", default: "", null: false
+
+
+
+
 
 # 10.times do
 #     rut = Faker::ChileRut.full_rut
@@ -56,7 +63,7 @@ Doctor.destroy_all
 #     apellido = Faker::Name.last_name
 #     mail = Faker::Internet.email(name: "#{nombre}+.+#{apellido}")
 #     especialidad = "Dentist"
-#     duplicate = Doctor.find_by(RUT: rut) || Patient.find_by(email: mail)
+#     duplicate = Doctor.find_by(RUT: rut) || Doctor.find_by(email: mail)
 #     if !duplicate
 #             Doctor.create(
 #                 [
@@ -65,7 +72,8 @@ Doctor.destroy_all
 #                         names: nombre,
 #                         surnames: apellido,
 #                         email: mail,
-#                         specialty: especialidad
+#                         specialty: especialidad,
+#                         password: '123456'
 #                     }
 #                 ]
 #             )
@@ -95,16 +103,16 @@ Doctor.destroy_all
 # t.boolean "paid_status", default: false
 # t.datetime "invoice_date"
 
-# 10.times do
-#     numero = rand(111111..999999)
-#     duplicate = Invoice.find_by(invoice_num: numero)
-#     if !duplicate
-#             Invoice.create(
-#                 [
-#                     {
-#                         invoice_num: numero
-#                     }
-#                 ]
-#             )
-#     end
-# end
+10.times do
+    numero = rand(111111..999999)
+    duplicate = Invoice.find_by(invoice_num: numero)
+    if !duplicate
+            Invoice.create(
+                [
+                    {
+                        invoice_num: numero
+                    }
+                ]
+            )
+    end
+end
