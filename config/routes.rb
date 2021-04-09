@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'patients/index'
+  get 'doctors/index'
+  get 'home/index'
   #devise_for :doctors
   get 'appointments/index'
   get 'appointment/index'
