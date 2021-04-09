@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   get 'home/index'
   #devise_for :doctors
   get 'appointments/index'
-  get 'appointment/index'
-  root 'appointments#index'
+  root 'home#index'
   devise_for :doctors, controllers: {
         sessions: 'doctors/sessions', registrations: 'doctors/registrations'
       }

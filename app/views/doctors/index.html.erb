@@ -1,2 +1,46 @@
-<h1>Doctors#index</h1>
-<p>Find me in app/views/doctors/index.html.erb</p>
+<h1></h1>
+<p></p>
+<%= current_doctor %>
+
+
+
+<% if current_doctor %>
+  <p>Bienvenid@ Dr(a) <%= current_doctor.surnames %> con ID <%= current_doctor.id %> !</p>
+  <%= link_to "Log out", destroy_doctor_session_path, method: :delete%>
+  <p>Aqui esta su agenda:</p>
+
+    <table>
+        <thead>
+          <th>Fecha/hora</th>
+          <th>Nombre Paciente</th>
+          <th>Apellido Paciente</th>
+          <th>Lugar de Atencion</th>
+          <th>$ por atencion</th>
+          <th># boleta</th>
+          <th>Status de pagp</th>
+        </thead>
+
+        <tbody>
+          <% @appointments.each do |app| %>
+            <tr>
+              <td><%= app.date_time %></td>
+              <td><%= app.patient.names %></td>
+              <td><%= app.patient.surnames %></td>
+              <td>ONLINE</td>
+              <td><%= app.cost %></td>
+           </tr>
+         <% end %>
+        </tbody>
+    </table>
+
+
+
+
+<% end %>
+
+
+
+
+<% if !current_doctor%>
+  <%= render "about"%>
+<% end %>
