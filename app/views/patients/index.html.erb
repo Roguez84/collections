@@ -1,2 +1,12 @@
 <h1>Patients#index</h1>
 <p>Find me in app/views/patients/index.html.erb</p>
+
+
+<% if !current_patient%>
+<%= render "about"%>
+<% end %>
+
+
+<% if current_patient %>
+  <p>Bienvenid@ Dr(a) <%= current_doctor.surnames %> con ID <%= current_doctor.id %> !</p>
+  <%= link_to "Log out", destroy_doctor_session_path, method: :delete%>

@@ -1,0 +1,23 @@
+
+
+<table>
+    <thead>
+      <th>RUT</th>
+      <th>Nombres Doctor</th>
+      <th>Apellidos Doctor</th>
+      <th>Especialidad</th>
+      <th>email</th>
+    </thead>
+
+    <tbody>
+        <tr>
+          <td><%= @doctor.RUT %></td>
+          <td><%= @doctor.names %></td>
+          <td><%= @doctor.surnames %></td>
+          <td><%= @doctor.specialty %></td>
+          <td><%= @doctor.email %></td>
+       </tr>
+    </tbody>
+</table>
+
+<%= render "boletas" %>

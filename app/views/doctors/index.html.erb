@@ -3,6 +3,10 @@
 <%= current_doctor %>
 
 
+<% if !current_doctor%>
+<%= render "about"%>
+<% end %>
+
 
 <% if current_doctor %>
   <p>Bienvenid@ Dr(a) <%= current_doctor.surnames %> con ID <%= current_doctor.id %> !</p>
@@ -36,11 +40,4 @@
 
 
 
-<% end %>
-
-
-
-
-<% if !current_doctor%>
-  <%= render "about"%>
 <% end %>

@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
-  #devise_for :doctors
-  #devise_for :patients
+  root 'home#index'
+  get 'home/index'
+
+##Patients
+  get 'patients/index'
+  get 'patients/profile'
+
+##Doctors
+  get 'doctors/index'
+  get 'doctors/profile'
+
+##Appointments
+  get 'appointments/index'
+
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get 'patients/index'
-  get 'doctors/index'
-  get 'home/index'
-  get 'appointments/index'
-  root 'home#index'
+
+  #devise_for :doctors
+  #devise_for :patients
   devise_for :doctors, controllers: {
         sessions: 'doctors/sessions', registrations: 'doctors/registrations'
       }
