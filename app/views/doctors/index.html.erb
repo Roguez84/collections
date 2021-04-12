@@ -1,6 +1,5 @@
 <h1></h1>
 <p></p>
-<%= current_doctor %>
 
 
 <% if !current_doctor%>
@@ -11,6 +10,12 @@
 <% if current_doctor %>
   <p>Bienvenid@ Dr(a) <%= current_doctor.surnames %> con ID <%= current_doctor.id %> !</p>
   <%= link_to "Log out", destroy_doctor_session_path, method: :delete%>
+
+  <a href="<%= doctors_profile_path %>">
+    <button type="button" name="button">Ver mi perfil</button>
+  </a>
+
+
   <p>Aqui esta su agenda:</p>
 
     <table>

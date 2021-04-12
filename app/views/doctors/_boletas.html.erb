@@ -1,0 +1,9 @@
+Soy una boleta
+
+<% @boletas.each do |boleta| %>
+   <%= boleta.id%> </p>
+  <p> <%= boleta.invoice_num%> </p>
+  <p> <%= boleta.invoice_amt%> </p>
+  <p> <%= boleta.paid_status%> </p>
+  <p> <%= boleta.invoice_date%> </p>
+<% end %>

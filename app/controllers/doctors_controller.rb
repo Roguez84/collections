@@ -9,5 +9,7 @@ class DoctorsController < ApplicationController
 
   def profile
     @doctor = current_doctor
+    @boletas = current_doctor.invoices
   end
+
 end
