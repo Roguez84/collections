@@ -5,11 +5,13 @@ one:
   names: MyString
   surnames: MyString
   specialty: MyString
-  email: MyString
+  #email: MyString
+  email: first_doctor@example.com
 
 two:
   RUT: MyString
   names: MyString
   surnames: MyString
   specialty: MyString
-  email: MyString
+  #email: MyString
+  email: second_doctor@example.com

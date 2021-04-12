@@ -4,12 +4,14 @@ one:
   RUT: MyString
   names: MyString
   surnames: MyString
-  email: MyString
+  #email: MyString
+  email: first_user@example.com
   address: MyString
 
 two:
   RUT: MyString
   names: MyString
   surnames: MyString
-  email: MyString
+  #email: MyString
+  email: second_user@example.com
   address: MyString
