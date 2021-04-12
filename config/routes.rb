@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 ##Doctors
   get 'doctors/index'
   get 'doctors/profile'
+  post 'doctors/update'
 
 ##Appointments
   get 'appointments/index'

@@ -1,0 +1,29 @@
+<tbody id="editando">
+      <form action="<%= doctors_update_path %>" method="post">
+        <%= token_tag %>
+        <tr>
+          <!-- <form class="" action="index.html" method="post">   -->
+            <td>
+              <input type="text" name="id" value="<%= @doctor.id %>">
+            </td>
+            <td>
+              <input type="text" name="RUT" value="<%= @doctor.RUT %>">
+            </td>
+            <td>
+              <input type="text" name="names" value="<%= @doctor.names %>">
+            </td>
+            <td>
+              <input type="text" name="surnames" value="<%= @doctor.surnames %>">
+            </td>
+            <td>
+              <input type="text" name="specialty" value="<%= @doctor.specialty %>">
+            </td>
+            <td>
+              <input type="text" name="email" value="<%= @doctor.email %>">
+            </td>
+       </tr>
+       <tr>
+         <input type="submit" value="Listo">
+       </tr>
+     </form>
+</tbody>
