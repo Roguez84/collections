@@ -19,6 +19,7 @@ class InvoiceTest < ActiveSupport::TestCase
     assert_not duplicated_order.valid?
   end
 
+
 end
 
 #Original de las lecturas
