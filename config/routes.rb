@@ -13,6 +13,14 @@ Rails.application.routes.draw do
 
 ##Appointments
   get 'appointments/index'
+  resource :appointment, only: [ :show , :update ]
+
+## Invoices
+resource :invoice , only: [ :show , :update ]
+
+
+## Cart
+resource :cart , only: [ :show , :update ]
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

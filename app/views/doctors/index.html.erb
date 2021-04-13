@@ -37,12 +37,41 @@
               <td><%= app.patient.surnames %></td>
               <td>ONLINE</td>
               <td><%= app.cost %></td>
+              <td >
+                <div id="add-to-existing-button">
+                  <button type="button" name="button">Add to existing invoice</button>
+                </div>
+                <div id="add-to-existing">
+                <%= form_for :invoice, url: appointment_path, method: :put do |f| %>
+                  <%= f.text_field :invoice_id  %>
+                  <%= f.hidden_field :appointment_id, value: appointment.id %>
+                  <%= f.submit "Add to invoice" %>
+                <% end %>
+                </div>
+              </td>
+              <td id="create-new">
+                <%= form_for :invoice, url: appointment_path, method: :put do |f| %>
+                  <%= f.hidden_field :invoice_id, value: nil %>
+                  <%= f.hidden_field :appointment_id, value: appointment.id %>
+                  <%= f.submit "Create new Invoice" %>
+                <% end %>
+              </td>
+
            </tr>
          <% end %>
         </tbody>
     </table>
-
-
-
-
 <% end %>
+
+<script>
+  $(document).ready(function(){
+    $('#add-to-existing').hide();
+
+    $('#add-to-existing-button').click(function(){
+      $('#add-to-existing-button').hide();
+      $('#add-to-existing').show();
+    });
+  });
+
+
+</script>

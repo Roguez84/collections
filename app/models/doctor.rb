@@ -14,9 +14,9 @@ class Doctor < ApplicationRecord
     # Uncomment the section below if you want users to be created if they don't exist
     unless doctor
         doctor = Doctor.create(names: data.name,
-            RUT: "9999-k",
-           email: data.email,
-           password: Devise.friendly_token[0,20]
+          RUT: "9999-k",
+          email: data.email,
+          password: Devise.friendly_token[0,20]
         )
     end
     doctor
