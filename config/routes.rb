@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   root 'home#index'
   get 'home/index'
 
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   get 'doctors/index'
   get 'doctors/profile'
   post 'doctors/update'
+  get 'doctors/probar', to: 'doctors#probar', as: 'probar'
 
 ##Appointments
   get 'appointments/index'

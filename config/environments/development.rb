@@ -31,7 +31,9 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  #config.action_mailer.raise_delivery_errors = false
+  #changed the above line to true
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -61,4 +63,12 @@ Rails.application.configure do
 
   ## Instruction 1 in devise installation
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  ## Mailgun
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV['MAILGUN_PRIMER_API_KEY'],
+    domain: 'sandboxe9f3368fa07f4697a08bd4c854002957.mailgun.org'#,
+    # api_host: 'api.eu.mailgun.net'  # Uncomment this line for EU region domains
+  }
 end

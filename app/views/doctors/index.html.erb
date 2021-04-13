@@ -6,7 +6,7 @@
 <%= render "about"%>
 <% end %>
 
-
+<%= link_to 'Probar Mailgun', probar_path%>
 <% if current_doctor %>
   <p>Bienvenid@ Dr(a) <%= current_doctor.surnames %> con ID <%= current_doctor.id %> !</p>
   <%= link_to "Log out", destroy_doctor_session_path, method: :delete%>
