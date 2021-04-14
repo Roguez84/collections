@@ -43,8 +43,8 @@
                 </div>
                 <div id="add-to-existing">
                 <%= form_for :invoice, url: appointment_path, method: :put do |f| %>
-                  <%= f.text_field :invoice_id  %>
-                  <%= f.hidden_field :appointment_id, value: appointment.id %>
+                  <%= f.text_field :invoice_id, value: app.invoice_id  %>
+                  <%= f.hidden_field :appointment_id, value: app.id %>
                   <%= f.submit "Add to invoice" %>
                 <% end %>
                 </div>
@@ -52,7 +52,7 @@
               <td id="create-new">
                 <%= form_for :invoice, url: appointment_path, method: :put do |f| %>
                   <%= f.hidden_field :invoice_id, value: nil %>
-                  <%= f.hidden_field :appointment_id, value: appointment.id %>
+                  <%= f.hidden_field :appointment_id, value: app.id %>
                   <%= f.submit "Create new Invoice" %>
                 <% end %>
               </td>
@@ -75,3 +75,24 @@
 
 
 </script>
+
+
+
+<%= column_chart Appointment.connection.select_all(" SELECT DISTINCT(DATE_TRUNC('month',date_time)) AS  production_to_month, COUNT(DATE_TRUNC('month',date_time)) FROM appointments GROUP BY DATE_TRUNC('month',date_time)").to_a %>
+
+<!--
+<#%= column_chart @appointments.group("strftime('%m-%Y', date_time)").order(date_time: :asc).count %>
+-->
+<!--
+<#%= column_chart @appointments.find_by_sql(
+"
+SELECT count(*), to_char(date_time, 'YYYY-MM') 
+FROM appointments
+GROUP BY to_char(date_time, 'YYYY-MM')
+ORDER BY to_char(date_time,'YYYY-MM') desc"
+) %>
+-->
+<!--
+<#%= column_chart Appointment.group("to_char(date_time, 'YYYY-MM')").order(date_time: :asc) %>
+
+-->

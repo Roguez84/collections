@@ -1,5 +1,8 @@
 {
   "name": "collections_postgre",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "chartkick": "^4.0.3",
+    "highcharts": "^9.0.1"
+  }
 }
