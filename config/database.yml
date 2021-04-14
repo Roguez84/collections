@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: collections_postgre_production
-  username: collections_postgre
-  password: <%= ENV['COLLECTIONS_POSTGRE_DATABASE_PASSWORD'] %>
+  # username: collections_postgre
+  # password: <%= ENV['COLLECTIONS_POSTGRE_DATABASE_PASSWORD'] %>
