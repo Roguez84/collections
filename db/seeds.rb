@@ -20,28 +20,28 @@
 # t.string "address"
 
 
-50.times do
-    rut = Faker::ChileRut.full_rut
-    nombre = Faker::Name.first_name
-    apellido = Faker::Name.last_name
-    mail = Faker::Internet.email(name: "#{nombre}+.+#{apellido}")
-    direccion = Faker::Address.street_address
-    duplicate = Patient.find_by(RUT: rut) || Patient.find_by(email: mail)
-    if !duplicate
-            Patient.create(
-                [
-                    {
-                        RUT: rut,
-                        names: nombre,
-                        surnames: apellido,
-                        email: mail,
-                        password: '123456',
-                        address: direccion
-                    }
-                ]
-            )
-    end
-end
+# 50.times do
+#     rut = Faker::ChileRut.full_rut
+#     nombre = Faker::Name.first_name
+#     apellido = Faker::Name.last_name
+#     mail = Faker::Internet.email(name: "#{nombre}+.+#{apellido}")
+#     direccion = Faker::Address.street_address
+#     duplicate = Patient.find_by(RUT: rut) || Patient.find_by(email: mail)
+#     if !duplicate
+#             Patient.create(
+#                 [
+#                     {
+#                         RUT: rut,
+#                         names: nombre,
+#                         surnames: apellido,
+#                         email: mail,
+#                         password: '123456',
+#                         address: direccion
+#                     }
+#                 ]
+#             )
+#     end
+# end
 #########################3
 
 ############## Doctores
@@ -58,28 +58,28 @@ end
 
 
 
-10.times do
-    rut = Faker::ChileRut.full_rut
-    nombre = Faker::Name.first_name
-    apellido = Faker::Name.last_name
-    mail = Faker::Internet.email(name: "#{nombre}+.+#{apellido}")
-    especialidad = "Dentist"
-    duplicate = Doctor.find_by(RUT: rut) || Doctor.find_by(email: mail)
-    if !duplicate
-            Doctor.create(
-                [
-                    {
-                        RUT: rut,
-                        names: nombre,
-                        surnames: apellido,
-                        email: mail,
-                        specialty: especialidad,
-                        password: '123456'
-                    }
-                ]
-            )
-    end
-end
+# 10.times do
+#     rut = Faker::ChileRut.full_rut
+#     nombre = Faker::Name.first_name
+#     apellido = Faker::Name.last_name
+#     mail = Faker::Internet.email(name: "#{nombre}+.+#{apellido}")
+#     especialidad = "Dentist"
+#     duplicate = Doctor.find_by(RUT: rut) || Doctor.find_by(email: mail)
+#     if !duplicate
+#             Doctor.create(
+#                 [
+#                     {
+#                         RUT: rut,
+#                         names: nombre,
+#                         surnames: apellido,
+#                         email: mail,
+#                         specialty: especialidad,
+#                         password: '123456'
+#                     }
+#                 ]
+#             )
+#     end
+# end
 #################
 
 
@@ -102,7 +102,7 @@ end
     monto = rand(9990..99990)
     paciente = rand(Patient.minimum(:id)..Patient.maximum(:id))
     doctor = rand(Doctor.minimum(:id)..Doctor.maximum(:id))
-    boleta = rand(Invoice.minimum(:id)..Invoice.maximum(:id))
+    #boleta = rand(Invoice.minimum(:id)..Invoice.maximum(:id))
             Appointment.create(
                 [
                     {
