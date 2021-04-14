@@ -78,15 +78,17 @@
 
 
 
-<%= column_chart Appointment.connection.select_all(" SELECT DISTINCT(DATE_TRUNC('month',date_time)) AS  production_to_month, COUNT(DATE_TRUNC('month',date_time)) FROM appointments GROUP BY DATE_TRUNC('month',date_time)").to_a %>
-
+<%= column_chart @para_grafico %>
+<!--
+<#%= column_chart Appointment.connection.select_all(" SELECT DISTINCT(DATE_TRUNC('month',date_time)) AS  production_to_month, COUNT(DATE_TRUNC('month',date_time)) FROM appointments GROUP BY DATE_TRUNC('month',date_time)").to_a %>
+-->
 <!--
 <#%= column_chart @appointments.group("strftime('%m-%Y', date_time)").order(date_time: :asc).count %>
 -->
 <!--
 <#%= column_chart @appointments.find_by_sql(
 "
-SELECT count(*), to_char(date_time, 'YYYY-MM') 
+SELECT count(*), to_char(date_time, 'YYYY-MM')
 FROM appointments
 GROUP BY to_char(date_time, 'YYYY-MM')
 ORDER BY to_char(date_time,'YYYY-MM') desc"

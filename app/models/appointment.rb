@@ -16,4 +16,12 @@ class Appointment < ApplicationRecord
     end
   return appointment
   end
+
+  def self.para_grafico
+    find_by_sql("
+       SELECT DISTINCT(DATE_TRUNC('month',date_time)) AS  production_to_month, COUNT(DATE_TRUNC('month',date_time))
+       FROM appointments 
+       GROUP BY DATE_TRUNC('month',date_time)")
+       .pluck(:production_to_month,:count)
+  end
 end

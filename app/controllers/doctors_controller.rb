@@ -25,6 +25,8 @@ class DoctorsController < ApplicationController
     if current_doctor
        @appointments = current_doctor.appointments.order(:date_time)
      end
+
+     @para_grafico = Appointment.para_grafico
   end
 
   def profile
