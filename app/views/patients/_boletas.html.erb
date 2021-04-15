@@ -1,0 +1,26 @@
+
+
+
+<table>
+  <thead>
+    <th>Boleta #</th>
+    <th>Nombre Doctor</th>
+    <th>Total boleta</th>
+    <th>Status de boleta</th>
+    <th>Fecha de emision</th>
+  </thead>
+  <tbody>
+      <% @boletas.each do |boleta| %>
+    <tr>
+      <td><%= boleta.invoice_num%></td>
+      <td><%= "#{Appointment.find_by(invoice_id: boleta.id).doctor.names} #{Appointment.find_by(invoice_id: boleta.id).doctor.surnames}"  %></td>
+      <td><%= boleta.invoice_amt%></td>
+      <td> <%= boleta.paid_status%></td>
+      <td> <%= boleta.invoice_date%></td>
+      <td>
+          <button type="button" name="button">Agregar al carro</button>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

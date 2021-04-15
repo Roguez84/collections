@@ -4,6 +4,22 @@
   <%= render "patients/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :RUT %><br />
+    <%= f.text_field :RUT, autocomplete: "RUT" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :names %><br />
+    <%= f.text_field :names, autofocus: true, autocomplete: "nombre" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :surnames %><br />
+    <%= f.text_field :surnames, autofocus: true, autocomplete: "apellidos" %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

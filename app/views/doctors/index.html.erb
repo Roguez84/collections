@@ -12,13 +12,13 @@
 <% if current_doctor %>
   <p>Bienvenid@ Dr(a) <%= current_doctor.surnames %> con ID <%= current_doctor.id %> !</p>
 
-  <!-- Esto se cambio al layout
-  <#%= link_to "Log out", destroy_doctor_session_path, method: :delete%>
+  <!-- Esto se trato de cambiar desde el layout pero no funciono -->
+  <%= link_to "Log out", destroy_doctor_session_path, method: :delete%>
 
-  <a href="<#%= doctors_profile_path %>">
+  <a href="<%= doctors_profile_path %>">
     <button type="button" name="button">Ver mi perfil</button>
   </a>
--->
+
 
   <p>Aqui esta su agenda:</p>
 
@@ -30,7 +30,7 @@
           <th>Lugar de Atencion</th>
           <th>$ por atencion</th>
           <th># boleta</th>
-          <th>Status de pagp</th>
+          <th>Status de pago</th>
         </thead>
 
         <tbody>

@@ -1,0 +1,30 @@
+
+<h2>Mis Datos</h2>
+<table>
+   <thead>
+     <th>ID</th>
+     <th>RUT</th>
+     <th>Nombres Doctor</th>
+     <th>Apellidos Doctor</th>
+     <th>Especialidad</th>
+     <th>email</th>
+   </thead>
+
+   <tbody id="solo-ver">
+       <tr >
+         <td><%= @patient.id %></td>
+         <td><%= @patient.RUT %></td>
+         <td><%= @patient.names %></td>
+         <td><%= @patient.surnames %></td>
+         <td><%= @patient.address %></td>
+         <td><%= @patient.email %></td>
+         <td>
+           <button type="button" name="button" id="editar">Editar perfil</button>
+         </td>
+      </tr>
+  </tbody>
+
+</table>
+
+<h2>Mis Boletas</h2>
+<%= render "boletas", boletas: @boletas %>

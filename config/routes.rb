@@ -36,7 +36,7 @@ resource :cart , only: [ :show , :update ]
       }
   #devise_for :doctors, controllers: { omniauth_callbacks: 'doctors/omniauth_callbacks' }
   devise_for :patients, controllers: {
-        sessions: 'patients/sessions', registrations: 'patients/registrations'
+        sessions: 'patients/sessions', registrations: 'patients/registrations'#, omniauth_callbacks: 'patients/omniauth_callbacks'
       }
 
 

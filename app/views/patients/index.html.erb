@@ -1,5 +1,5 @@
-<h1>Patients#index</h1>
-<p>Find me in app/views/patients/index.html.erb</p>
+<h1></h1>
+<p></p>
 
 
 <% if !current_patient%>
@@ -8,5 +8,63 @@
 
 
 <% if current_patient %>
-  <p>Bienvenid@ Dr(a) <%= current_doctor.surnames %> con ID <%= current_doctor.id %> !</p>
-  <%= link_to "Log out", destroy_doctor_session_path, method: :delete%>
+  <h1>Bienvenid@ <%= current_patient.names %> (ID: <%= current_patient.id) %> !</h1>
+  <%= link_to "Log out", destroy_patient_session_path, method: :delete%>
+
+
+
+<a href="<%= patients_profile_path %>">
+  <button type="button" name="button">Ver mi perfil</button>
+</a>
+
+
+<h2>Atenciones agendadas:</h2>
+
+  <table>
+      <thead>
+        <th>Fecha/hora</th>
+        <th>Especialidad de Doctor</th>
+        <th>Nombre Doctor</th>
+        <th>Apellido Doctor</th>
+        <th>Lugar de Atencion</th>
+        <th>$ por atencion</th>
+        <th># boleta</th>
+        <th>Status de pago</th>
+      </thead>
+
+      <tbody>
+        <% @appointments.each do |app| %>
+          <tr>
+            <td><%= app.date_time %></td>
+            <td><%= app.doctor.specialty %></td>
+            <td><%= app.doctor.names %></td>
+            <td><%= app.doctor.surnames %></td>
+            <td>ONLINE</td>
+            <td><%= app.cost %></td>
+            <td>
+              <% if app.invoice_id %>
+                <p><%="Boleta numero #{Invoice.find(app.invoice_id).invoice_num}" %></p>
+              <% else %>
+                 <p> doctor no ha generado boleta para esta atencion </p>
+              <% end %>
+            </td>
+            <td>
+              <% if app.invoice_id %>
+                <p><%="Pertenece a boleta con id #{app.invoice_id}" %></p>
+              <% else %>
+                <p> doctor no ha generado boleta para esta atencion </p>
+              <% end %>
+            </td>
+            <td>
+              <% if app.invoice_id %>
+                <button type="button" name="button">Ver Boleta</button>
+              <% end %>
+            </td>
+
+
+         </tr>
+       <% end %>
+      </tbody>
+  </table>
+
+<% end %>
