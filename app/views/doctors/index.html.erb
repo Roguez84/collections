@@ -7,14 +7,18 @@
 <% end %>
 
 <%= link_to 'Probar Mailgun', probar_path%>
+
+
 <% if current_doctor %>
   <p>Bienvenid@ Dr(a) <%= current_doctor.surnames %> con ID <%= current_doctor.id %> !</p>
-  <%= link_to "Log out", destroy_doctor_session_path, method: :delete%>
 
-  <a href="<%= doctors_profile_path %>">
+  <!-- Esto se cambio al layout
+  <#%= link_to "Log out", destroy_doctor_session_path, method: :delete%>
+
+  <a href="<#%= doctors_profile_path %>">
     <button type="button" name="button">Ver mi perfil</button>
   </a>
-
+-->
 
   <p>Aqui esta su agenda:</p>
 
@@ -61,6 +65,11 @@
          <% end %>
         </tbody>
     </table>
+
+    <div>
+      <h2>Numero de Consultas por mes</h2>
+      <%= column_chart @para_grafico %>
+    </div>
 <% end %>
 
 <script>
@@ -72,29 +81,4 @@
       $('#add-to-existing').show();
     });
   });
-
-
 </script>
-
-
-
-<%= column_chart @para_grafico %>
-<!--
-<#%= column_chart Appointment.connection.select_all(" SELECT DISTINCT(DATE_TRUNC('month',date_time)) AS  production_to_month, COUNT(DATE_TRUNC('month',date_time)) FROM appointments GROUP BY DATE_TRUNC('month',date_time)").to_a %>
--->
-<!--
-<#%= column_chart @appointments.group("strftime('%m-%Y', date_time)").order(date_time: :asc).count %>
--->
-<!--
-<#%= column_chart @appointments.find_by_sql(
-"
-SELECT count(*), to_char(date_time, 'YYYY-MM')
-FROM appointments
-GROUP BY to_char(date_time, 'YYYY-MM')
-ORDER BY to_char(date_time,'YYYY-MM') desc"
-) %>
--->
-<!--
-<#%= column_chart Appointment.group("to_char(date_time, 'YYYY-MM')").order(date_time: :asc) %>
-
--->

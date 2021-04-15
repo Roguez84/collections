@@ -1,7 +1,11 @@
-<h2>Please sign in here</h2>
-<%= link_to "Log in", new_doctor_session_path %>
+<h1>Bienvenid@ a particulares.club</h1>
+<h2> Crea boletas electronicas y gestiona cobranza de tus pacientes automaticamente!</h2>
+
+<h3>Si ya tienes cuenta,</h3>
+<h3> <%= link_to "ingresa aqui", new_doctor_session_path %>
+o
+ingresa con tu cuenta <%=  link_to "google", doctor_google_oauth2_omniauth_authorize_path %></h3>
+
 <br>
-<%= link_to "Sign in with Google", doctor_google_oauth2_omniauth_authorize_path %>
-<br>
-<h1>If you don't have an account, You should totally create an account Doc</h1>
-<%= link_to "Sign up", new_doctor_registration_path %>
+
+<h3>Si aun no tienes cuenta, puedes crear una <%= link_to "Aqui", new_doctor_registration_path %> </h3>
