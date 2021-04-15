@@ -5,9 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <!-- codigo de phantom
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-     -->
+    <link rel="stylesheet" href="../../assets/stylesheets/main.css" />
+    <noscript><link rel="stylesheet" href="../../assets/stylesheets/noscript.css" /></noscript>
+    -->
 
     <!-- codigo por defecto de rails -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -40,24 +40,26 @@
             </nav>
           </div>
         </header>
+      <% end %> 
+<!--
 
-
-        <!-- Menu -->
+        <!-- Menu
         <nav id="menu">
           <h2>Menu</h2>
           <ul>
-            <% if (current_doctor)  %>
-              <li><%= link_to "Log out", destroy_doctor_session_path, method: :delete%></li>
-              <li><%= link_to "Ver mi perfil", doctors_profile_path%></li>
-            <% elsif (current_patient) %>
-              <li><%= link_to "Log out", destroy_doctor_session_path, method: :delete%></li>
-              <li><%= link_to "Ver mi perfil", doctors_profile_path%></li>
-            <% else %>
+            <#% if (current_doctor)  %>
+              <li><#%= link_to "Log out", destroy_doctor_session_path, method: :delete%></li>
+              <li><#%= link_to "Ver mi perfil", doctors_profile_path%></li>
+            <#% elsif (current_patient) %>
+              <li><#%= link_to "Log out", destroy_doctor_session_path, method: :delete%></li>
+              <li><#%= link_to "Ver mi perfil", doctors_profile_path%></li>
+            <#% else %>
               <li> Esto no se deberia estar mostrando </li>
-            <% end %>
+            <#% end %>
           </ul>
         </nav>
-      <% end %>
+      <#% end %>
+   -->
 
 
         <!-- Main -->
@@ -78,8 +80,6 @@
           </div>
         </footer>
     </div>
-
-
 
   </body>
 </html>

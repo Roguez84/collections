@@ -11,9 +11,13 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require browser.min
+//= require breakpoints.min
+//= require util
+//= require main
 //= require chartkick
 //= require highcharts
 //= require_tree .
