@@ -1,9 +1,23 @@
-Soy una boleta
 
-<% @boletas.each do |boleta| %>
-   <%= boleta.id%> </p>
-  <p> <%= boleta.invoice_num%> </p>
-  <p> <%= boleta.invoice_amt%> </p>
-  <p> <%= boleta.paid_status%> </p>
-  <p> <%= boleta.invoice_date%> </p>
-<% end %>
+
+
+<table>
+  <thead>
+    <th>Boleta #</th>
+    <th>Nombre Paciente</th>
+    <th>Total boleta</th>
+    <th>Status de boleta</th>
+    <th>Fecha de emision</th>
+  </thead>
+  <tbody>
+      <% @boletas.each do |boleta| %>
+    <tr>
+      <td><%= boleta.invoice_num%></td>
+      <td><%= "#{Appointment.find_by(invoice_id: boleta.id).patient.names} #{Appointment.find_by(invoice_id: boleta.id).patient.surnames}"  %></td>
+      <td><%= boleta.invoice_amt%></td>
+      <td> <%= boleta.paid_status%></td>
+      <td> <%= boleta.invoice_date%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

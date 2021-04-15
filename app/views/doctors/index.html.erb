@@ -2,8 +2,8 @@
 <p></p>
 
 
-<% if !current_doctor%>
-<%= render "about"%>
+<% if !current_doctor %>
+<%= render "about" %>
 <% end %>
 
 <%= link_to 'Probar Mailgun', probar_path%>
@@ -42,11 +42,15 @@
               <td>ONLINE</td>
               <td><%= app.cost %></td>
               <td >
-                <div id="add-to-existing-button">
-                  <button type="button" name="button">Add to existing invoice</button>
-                </div>
-                <div id="add-to-existing">
-                <%= form_for :invoice, url: appointment_path, method: :put do |f| %>
+                <% if app.invoice_id %>
+                  <p><%="Boleta numero #{Invoice.find(app.invoice_id).invoice_num}" %></p>
+                <% else %>
+                  <div id="add-to-existing-button" class="add-to-existing-button">
+                    <button type="button" name="button">Anadir a boleta existente</button>
+                  </div>
+                <% end %>
+                <div id="add-to-existing" class="add-to-existing">
+                <%= form_for :appointment, url: appointment_path, method: :put do |f| %>
                   <%= f.text_field :invoice_id, value: app.invoice_id  %>
                   <%= f.hidden_field :appointment_id, value: app.id %>
                   <%= f.submit "Add to invoice" %>
@@ -54,10 +58,14 @@
                 </div>
               </td>
               <td id="create-new">
-                <%= form_for :invoice, url: appointment_path, method: :put do |f| %>
-                  <%= f.hidden_field :invoice_id, value: nil %>
-                  <%= f.hidden_field :appointment_id, value: app.id %>
-                  <%= f.submit "Create new Invoice" %>
+                <% if app.invoice_id %>
+                  <p><%="Pertenece a boleta con id #{app.invoice_id}" %></p>
+                <% else %>
+                  <%= form_for :appointment, url: appointment_path, method: :put do |f| %>
+                    <%= f.hidden_field :invoice_id, value: "" %>
+                    <%= f.hidden_field :appointment_id, value: app.id %>
+                    <%= f.submit "Crear nueva boleta" %>
+                  <% end %>
                 <% end %>
               </td>
 
@@ -71,14 +79,3 @@
       <%= column_chart @para_grafico %>
     </div>
 <% end %>
-
-<script>
-  $(document).ready(function(){
-    $('#add-to-existing').hide();
-
-    $('#add-to-existing-button').click(function(){
-      $('#add-to-existing-button').hide();
-      $('#add-to-existing').show();
-    });
-  });
-</script>

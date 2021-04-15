@@ -50,7 +50,7 @@ class DoctorsController < ApplicationController
 
   private
   def set_doctor
-    @doctor = Doctor.find(params[:id])
+    @doctor = Doctor.find(params[:doctor][:id])
   end
 
   # Only allow a list of trusted parameters through.

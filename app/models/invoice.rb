@@ -10,7 +10,7 @@ class Invoice < ApplicationRecord
   def generate_number
     self.invoice_num ||= loop do
       random = "BO #{Array.new( 9 ){rand( 9 )} .join}"
-      break random unless self.class.exists?( invoice_num: random)
+      break random unless Invoice.find_by(invoice_num: random)
     end
   end
 
