@@ -4,15 +4,72 @@
     <title>CollectionsPostgre</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- codigo de phantom
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+     -->
 
+    <!-- codigo por defecto de rails -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <!-- class="is-preload" viene de phantom -->
+  <body class="is-preload">
     <!-- Needed for devise -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <!-- antes de phantom, yiels estaba aqui -->
+     <!-- <#%= yield %> -->
+
+
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+          <div class="inner">
+            <!-- Nav -->
+            <nav>
+              <ul>
+                <li><a href="#menu">Menu</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+
+        <!-- Menu -->
+        <nav id="menu">
+          <h2>Menu</h2>
+          <ul>
+            <li><%= link_to "Soy Doctor", doctors_index_path%></li>
+            <li><%= link_to "Soy Paciente", patients_index_path%></li>
+          </ul>
+        </nav>
+
+
+        <!-- Main -->
+        <div id="main">
+          <div class="inner">
+            <%= yield %>
+          </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer id="footer">
+          <div class="inner">
+            <ul class="copyright">
+              <li>&copy; Untitled. All rights reserved</li>
+              <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+          </div>
+        </footer>
+    </div>
+
+
+
   </body>
+      <%= javascript_include_tag 'application'%>
 </html>
